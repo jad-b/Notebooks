@@ -1,0 +1,192 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Security\n",
+    "\n",
+    "## Attacks\n",
+    "\n",
+    "### Concepts\n",
+    "1. __Leakage__ Unathorized access to service or data\n",
+    "    * Knowing your bank balance\n",
+    "1. __Tampering__ Unauthorized modification of service or data\n",
+    "    * Modifying your bank balance\n",
+    "1. __Vandalism__ Interference with normal service\n",
+    "    * DDOS\n",
+    "### Methods\n",
+    "1. __Eavesdropping__ Listening to network traffic\n",
+    "1. __Masquerading__ Spoofing identity\n",
+    "1. __Tampering__ Modifying messages\n",
+    "1. __Replay__ Replaying old messages\n",
+    "1. __Denial of service__ Bombarding a port\n",
+    "\n",
+    "## The CIA Properties\n",
+    "Desirable properties in a secure system.\n",
+    "\n",
+    "1. __Confidentiality__ Proteted against unauthorized data disclosure\n",
+    "1. __Integrity__ Only authorized users may alter (write) data\n",
+    "1. __Availability__ Data is always available (reads) (protection against vandalism)\n",
+    "\n",
+    "### Policies vs Mechanisms\n",
+    "* __Policies__ indicate *what* a secure system accomplishes\n",
+    "    * Only auth'd individuals are allowed to access files in a file system\n",
+    "* __Mechanisms__ indicate *how* these goals are accomplished\n",
+    "    * ACLs, permission sets\n",
+    "\n",
+    "#### Mechanisms\n",
+    "* __Authentication__ Alice is, in fact, Alice\n",
+    "* __Authorization__ Sure she's Alice, but can Alice perform this operation?\n",
+    "* __Auditing__ How did Alice fuck everything up? Log everything.\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Principals\n",
+    "\n",
+    "* A __Process__ carries out actions on behalf of users\n",
+    "* __Key__ Sequence of bytes, assigned to a user\n",
+    "    * Keys can \"lock\" messages\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Symmetric vs. Asymmetric\n",
+    "\n",
+    "* Many systems use a public/private key system to generate a shared key\n",
+    "    * Shared key is used to encrypt/decrypt messages\n",
+    "   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Implementing Cryptography Mechanisms\n",
+    "\n",
+    "### Authentication\n",
+    "1. __Direct Authentication__ Only between the two involved parties\n",
+    "1. __Indirect Authentication__ Involves a trusted third-party\n",
+    "    * Verisign\n",
+    "    \n",
+    "__nonce__ A random number, used for proving encryption methods between parties    \n",
+    "    \n",
+    "#### Direct Authentication\n",
+    "##### Shared Key\n",
+    "![](img/direct_auth_shared_key.png)\n",
+    "\n",
+    "Attempting to *optimize* by sending nonce's alongside requests & replies makes for vulnerability to replay attacks:\n",
+    "![](img/direct_auth_replay_attack.png)\n",
+    "\n",
+    "#### Indirect Authentication\n",
+    "We'll use an Auth Server and Shared Keys\n",
+    "__ticket__ Means of passing encrypted information that only a limited number of parties can decrypt\n",
+    "* If you encrypt a secret with each parties key, only the involved parties will be able to decrypt\n",
+    "* $ K_{A,AS}(K_{A,B}), K_{B,AB}(K_{A,B}) $"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Digital Signatures\n",
+    "\n",
+    "* Encrypting a message with a private key is a form of signing\n",
+    "    * Only public key can be used to decrypt\n",
+    "    * Having nonsense come out from decryption can \n",
+    "* You can improve performane by *hashing* the message first\n",
+    "    * reduces the size of the message\n",
+    "    * $M, K_{Apriv}(Hash(M))$\n",
+    "    \n",
+    "### Digital Certificates\n",
+    "\n",
+    "* Implemented using Digital signatures\n",
+    "* Usually have a standard format, so many principles can verify its authority\n",
+    "* Have a transitive property\n",
+    "    * Tracing chain backwards ends at a common root\n",
+    "\n",
+    "#### Example\n",
+    "Here's a client cert:\n",
+    "\n",
+    "1. Certificate Type: Account\n",
+    "1. Name: Alice\n",
+    "1. Account #: 12345\n",
+    "1. Certifying Authority: Charlie's Bank\n",
+    "1. Signature\n",
+    "    * $K_{Cpriv}(Hash(Name + Account#)$\n",
+    "* Anyone receiving this cert can use $K_{Cpub}$ to decrypt the signature\n",
+    "* From there, by adding the Name + Account # and hashing you can verify its good.\n",
+    "\n",
+    "And here's what Charlie's Bank cert would look like:\n",
+    "\n",
+    "1. Certificate Type: Public Key\n",
+    "1. Name: Charlie's Bank\n",
+    "1. Public Key: $K_{Cpub}$\n",
+    "1. Certifying Authority: Banker's Federation\n",
+    "1. $K_{Fpriv}(Hash(Name+PublicKey))$\n",
+    "\n",
+    "Aaaand here's what Charlie's Bank's signing authority, Banker's Federation, might look like:\n",
+    "1. Certificate Type: Public Key\n",
+    "1. Name: Banker's Federation\n",
+    "1. Public Key: $K_{Fpub}$\n",
+    "1. Certifying Authority: Verisign\n",
+    "1. Signature\n",
+    "    * $K_{Verisign,priv}(Hash(Name+Public key))$\n",
+    "    \n",
+    "And everybody trusts Verisign, so now you know you can trust leaves of the chain."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Authorization\n",
+    "\n",
+    "1. Access Control Matrix\n",
+    "    * Maintain a mode of access for every pair of (principal, object)\n",
+    "    * Can be sparse, many entries may be (\"no access\")\n",
+    "1. Access Control List\n",
+    "    * Per object, list of allowed principals and allowed level of access\n",
+    "1. Capability List\n",
+    "    * Per principal list of files and allowed mode of access\n",
+    "    * Can split into capability, so by r/w/x level you list (principal, object)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.4.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 0
+}
