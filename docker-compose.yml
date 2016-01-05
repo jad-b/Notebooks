@@ -1,4 +1,4 @@
-SciPyNotebook:
+notebook:
   image: ipython/scipyserver
   ports:
     - "127.0.0.1:443:8888"
