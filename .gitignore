@@ -1,3 +1,9 @@
 # iPython checkpoints
 .ipynb_checkpoints/
 *.pem
+__pycache__/
+*.pyc
+
+*.gl/
+*.zip
+*.tar.gz
