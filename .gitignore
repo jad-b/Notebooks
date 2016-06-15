@@ -1,3 +1,7 @@
+# Google's OAuth token
+client_secret.json
+# Third-party notebooks
+vendor/
 # iPython checkpoints
 .ipynb_checkpoints/
 *.pem
