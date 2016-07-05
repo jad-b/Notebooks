@@ -1,12 +1,19 @@
 # https://github.com/jupyter/docker-stacks/tree/master/all-spark-notebook
 FROM jupyter/all-spark-notebook
 
+RUN apt-get update && apt-get install -y \
+    pkg-config \
+    libhdf5-dev
+
 # Install custom pip packages
 RUN pip install -U pip && pip install -U \
     beautifulsoup4>=4.4.1 \
-    mpld3
+    google-api-python-client \
+    mpld3 \
+    sphinx \
+    tables
 
-# Install graphlab
+# Install Dato's GraphLab
 ENV GRAPHLAB_EMAIL j.american.db@gmail.com
 ARG GRAPHLAB_LICENSE
 ARG GRAPHLAB_VERSION=1.9
