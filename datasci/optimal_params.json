@@ -1,0 +1,1 @@
+{"clf__penalty": "elasticnet", "vect__ngram_range": [1, 1], "tfidf__norm": "l2", "tfidf__use_idf": false, "vect__max_df": 0.75, "clf__alpha": 0.001, "clf__n_iter": 10}

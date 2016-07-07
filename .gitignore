@@ -1,5 +1,7 @@
 mlsl/
 matchwell/
+# HDF5
+*.h5
 # Google's OAuth token
 client_secret.json
 # Third-party notebooks
