@@ -2,20 +2,20 @@ version: '2'
 services:
   notebook:
     build:
-      context: ./notebooks
+      context: .
       # args:
         # GRAPHLAB_LICENSE: ${GLCREATE_PRODUCT_KEY}
     ports:
       - "localhost:8888:8888"
     volumes:
-      - ./notebooks:/home/jovyan/work
-      - ./notebooks/mlsl:/home/jovyan/mlsl
+      - ./:/home/jovyan/work
+      - ./mlsl:/home/jovyan/mlsl
     restart: "unless-stopped"
     command: start-notebook.sh
 
   beaker:
     image: beakernotebook/beaker
     volumes:
-      - /home/jdb/notebooks:/home/beaker/notebooks
+      - ./:/home/beaker/notebooks
     ports:
       - "8800:8800"
