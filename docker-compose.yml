@@ -1,16 +1,19 @@
 version: '2'
 services:
+
   notebook:
     build:
       context: .
       # args:
         # GRAPHLAB_LICENSE: ${GLCREATE_PRODUCT_KEY}
+    container_name: notebooks
+    hostname: ipy-notebook
     ports:
       - "localhost:8888:8888"
+    restart: "unless-stopped"
     volumes:
       - ./:/home/jovyan/work
       - ./mlsl:/home/jovyan/mlsl
-    restart: "unless-stopped"
     command: start-notebook.sh
 
   beaker:

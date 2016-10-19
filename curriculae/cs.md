@@ -1,0 +1,146 @@
+# Topics
+- Algorithms
+    - Time/Space Complexity
+        - Worst case
+        - Average case
+        - Amortized
+    - Sorting
+        * Efficient use cases for each following algo
+        - [ ] Merge Sort
+            - My custom parallel merge sort
+            - [x] Runtime analysis of Merge Sort: 6n*lg n + 6n
+        - Quick Sort
+            - Randomized
+        - Heap Sort
+        - Radix sort
+        - Counting sort
+        - Insertion Sort
+    - Binary Search
+        - Iterative
+        - Recursively
+    - Selection
+        - quickselect
+        - median-of-medians
+    - Dynamic Programming
+        - Longest common subsequence
+        - Knapsack
+    - Topological Sort
+        - Tarjan's algorithm?
+    - Graphs
+        - Dijkstra's
+        - A*
+    - Recursion
+        - Fibonacci
+    - string manipulation
+        - most common char
+        - reverse words of a string
+    - bit manipulation
+        - AND, OR, XOR
+        - Signed integer
+        - 8 bits / byte
+- Data Structures
+    - NP-Complete
+        - Knapsack
+        - Travelling Salesman
+    - Trees
+        - Traversal
+            - Pre-, in-, post-order
+            - DFS, w/ cycle detection
+            - BFS
+                - Through a matrix as well
+        - Trie
+            - Suffix Tree
+                - Uknonnen's Algorithm
+        - Binary
+    - Graphs
+        - Objects & Pointers
+        - Adjacency list
+        - Adjacency Matrix
+    - Hash Tables
+    - [?] Hash set
+    - Stacks
+    - Arrays
+        - Dynamic arrays using a ring buffer
+    - Linked Lists
+    - Priority Queues/Heap
+        - Binary heap
+            - w/o decrease-key
+        - Fibonacci heap
+- Concepts and Processes
+    - SQL
+        - ACID
+        - CAP
+        - Performance effect of joins
+        - [NoSQL](https://www.youtube.com/watch?v=qI_g07C_Q5I)
+    - Web requests
+        - URL requests lifecycle
+        - DNS lookups
+        - HTTP verbs
+        - TCP/UDP
+    - LRU cache
+    - Website optimization
+        - DB indices
+        - Caching
+        - Static files f/ CDN
+        - Zombie listeners
+- Mathematics
+    - n-choose-k
+    - prime number generation
+
+# Resources
+- Books
+    -
+- Coding sites
+    - leetcode.com
+    - google-interview.com
+    - topcoder.com
+- Tracks
+    - [Google Tech Development
+      Guide](https://www.google.com/about/careers/students/guide-to-technical-development.html)
+- Courses
+    - [Machine Learning
+      Nanodegree](https://www.udacity.com/course/machine-learning-engineer-nanodegree--nd009)
+    - [Mathematics for Computer
+      Science - MIT](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm)
+    - [Intro to Robotics - Stanford](https://see.stanford.edu/Course/CS223A)
+- Reading
+    - [Scalable Web Architecture and Distributed Systems](http://www.aosabook.org/en/distsys.html)
+- Interview guidance
+    - http://steve-yegge.blogspot.com/2008/03/get-that-job-at-google.html
+    - http://haseebq.com/how-to-break-into-tech-job-hunting-and-interviews/#study
+    - http://haseebq.com/how-to-break-into-tech-job-hunting-and-interviews/#circuit
+
+# Software Engineering vs. Computer Science
+- Math
+    - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm
+      - Object: https://ocw.mit.edu/courses/mathematics/18-310-principles-of-discrete-applied-mathematics-fall-2013/index.htm
+- Statistics
+    - Probabilisic Inference
+        - Object: https://www.edx.org/course/computational-probability-inference-mitx-6-008-1x
+- CS
+    - Data Structures
+        - Object: http://courses.csail.mit.edu/6.851/spring14/
+    - Algorithms
+        - Object: https://www.coursera.org/learn/introduction-to-algorithms
+        - Object: https://www.coursera.org/learn/java-data-structures-algorithms-2
+        - Object: https://www.coursera.org/learn/algorithm-design-analysis
+        - Object: https://www.coursera.org/learn/algorithm-design-analysis-2
+        - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/
+        - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/index.htm
+        - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-854j-advanced-algorithms-fall-2008/index.htm
+        - Object: https://developers.google.com/optimization/
+    - Programming Languages
+    - Theories of Computing
+    - AI
+        - Object: https://www.edx.org/micromasters/columbiax-artificial-intelligence
+        - Game Theory
+            - Object: https://www.coursera.org/course/gametheory
+        - Machine Learning
+            - Deep Learning
+                - Object: https://www.udacity.com/course/deep-learning--ud730
+- SE
+    - Software Architecture & Design
+    - Design Patterns
+    - Delivery
+    - Operationalization
+    - Testing

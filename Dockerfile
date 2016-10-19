@@ -1,5 +1,5 @@
 # https://github.com/jupyter/docker-stacks/tree/master/all-spark-notebook
-FROM jupyter/all-spark-notebook
+FROM jupyter/tensorflow-notebook
 
 # Install Dato's GraphLab
 # ENV GRAPHLAB_EMAIL j.american.db@gmail.com
@@ -28,6 +28,7 @@ RUN conda install -n python2 --yes \
 # Python3
 RUN conda install --yes \
     "beautifulsoup4>=4.4.1" \
+    joblib \
     "mpld3" \
     "sphinx" \
     "pytables"
