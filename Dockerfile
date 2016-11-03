@@ -33,6 +33,7 @@ RUN conda install --yes \
     "sphinx" \
     "pytables"
 RUN pip install -U \
+    aiohttp \
     google-api-python-client
 
 # Copy in custom javascript modifications to the notebook

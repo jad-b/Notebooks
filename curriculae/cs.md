@@ -138,9 +138,18 @@
         - Machine Learning
             - Deep Learning
                 - Object: https://www.udacity.com/course/deep-learning--ud730
-- SE
+- Software Engineering
     - Software Architecture & Design
     - Design Patterns
+        - Adapter
+        - Command
+        - Decorator
+        - Facade
+        - Factory
+        - Observer
+        - Strategy
     - Delivery
+        - Continuous Delivery
     - Operationalization
     - Testing
+
