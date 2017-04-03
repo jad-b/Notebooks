@@ -1,0 +1,82 @@
+FROM jupyter/scipy-notebook
+
+USER root
+RUN apt-get update \
+    && apt-get upgrade -y -o Dpkg::Options::="--force-confdef" -o DPkg::Options::="--force-confold" \
+    && apt-get install -y \
+    man-db \
+    libc6 \
+    libc6-dev \
+    build-essential \
+    wget \
+    curl \
+    file \
+    vim \
+    screen \
+    tmux \
+    unzip \
+    pkg-config \
+    cmake \
+    gfortran \
+    gettext \
+    libreadline-dev \
+    libncurses-dev \
+    libpcre3-dev \
+    libgnutls28 \
+    libzmq3-dev \
+    libzmq3 \
+    python \
+    python-yaml \
+    python-m2crypto \
+    python-crypto \
+    msgpack-python \
+    python-dev \
+    python-setuptools \
+    supervisor \
+    python-jinja2 \
+    python-requests \
+    python-isodate \
+    python-git \
+    python-pip \
+    && apt-get clean
+
+RUN pip install --upgrade \
+    PyDrive \
+    google-api-python-client \
+    invoke \
+    jsonpointer \
+    jsonschema \
+    mistune \
+    nose \
+    pygments \
+    pyzmq \
+    readline \
+    sphinx \
+    tornado
+
+RUN pip install 'notebook==4.2'
+
+# Install julia 0.6
+RUN mkdir -p /opt/julia-0.6.0-dev && \
+    curl -s -L https://status.julialang.org/download/linux-x86_64 | \
+    tar -C /opt/julia-0.6.0-dev -x -z --strip-components=1 -f -
+RUN ln -fs /opt/julia-0.6.0-dev /opt/julia-0.6
+
+# Make v0.6 default julia
+RUN ln -fs /opt/julia-0.6.0-dev /opt/julia
+
+ENV PATH /opt/julia/bin:$PATH
+
+RUN /opt/julia/bin/julia -e 'Pkg.add("IJulia")'
+RUN /opt/julia/bin/julia -e 'Pkg.build("IJulia")'
+
+# Install IJulia packages as jovyan and then move the kernelspec out
+# to the system share location. Avoids problems with runtime UID change not
+# taking effect properly on the .local folder in the jovyan home dir.
+RUN mv $HOME/.local/share/jupyter/kernels/julia* $CONDA_DIR/share/jupyter/kernels/ && \
+    chmod -R go+rx $CONDA_DIR/share/jupyter && \
+    rm -rf $HOME/.local
+# Update Julia packages
+RUN echo "push!(Libdl.DL_LOAD_PATH, \"$CONDA_DIR/lib\")" > /home/$NB_USER/.juliarc.jl
+
+USER $NB_USER

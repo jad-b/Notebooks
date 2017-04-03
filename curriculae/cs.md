@@ -112,32 +112,35 @@
 
 # Software Engineering vs. Computer Science
 - Math
-    - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm
-      - Object: https://ocw.mit.edu/courses/mathematics/18-310-principles-of-discrete-applied-mathematics-fall-2013/index.htm
+    - https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2010/index.htm
+      - https://ocw.mit.edu/courses/mathematics/18-310-principles-of-discrete-applied-mathematics-fall-2013/index.htm
 - Statistics
     - Probabilisic Inference
-        - Object: https://www.edx.org/course/computational-probability-inference-mitx-6-008-1x
+        - https://www.edx.org/course/computational-probability-inference-mitx-6-008-1x
+    - "you need a book that starts from the axioms of probability, runs through
+       combinatorics and then proceeds into random variable analysis"
+
 - CS
     - Data Structures
-        - Object: http://courses.csail.mit.edu/6.851/spring14/
+        - http://courses.csail.mit.edu/6.851/spring14/
     - Algorithms
-        - Object: https://www.coursera.org/learn/introduction-to-algorithms
-        - Object: https://www.coursera.org/learn/java-data-structures-algorithms-2
-        - Object: https://www.coursera.org/learn/algorithm-design-analysis
-        - Object: https://www.coursera.org/learn/algorithm-design-analysis-2
-        - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/
-        - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/index.htm
-        - Object: https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-854j-advanced-algorithms-fall-2008/index.htm
-        - Object: https://developers.google.com/optimization/
+        - https://www.coursera.org/learn/introduction-to-algorithms
+        - https://www.coursera.org/learn/java-data-structures-algorithms-2
+        - https://www.coursera.org/learn/algorithm-design-analysis
+        - https://www.coursera.org/learn/algorithm-design-analysis-2
+        - https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-fall-2011/
+        - https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-046j-design-and-analysis-of-algorithms-spring-2015/index.htm
+        - https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-854j-advanced-algorithms-fall-2008/index.htm
+        - https://developers.google.com/optimization/
     - Programming Languages
     - Theories of Computing
     - AI
-        - Object: https://www.edx.org/micromasters/columbiax-artificial-intelligence
+        - https://www.edx.org/micromasters/columbiax-artificial-intelligence
         - Game Theory
-            - Object: https://www.coursera.org/course/gametheory
+            - https://www.coursera.org/course/gametheory
         - Machine Learning
             - Deep Learning
-                - Object: https://www.udacity.com/course/deep-learning--ud730
+                - https://www.udacity.com/course/deep-learning--ud730
 - Software Engineering
     - Software Architecture & Design
     - Design Patterns

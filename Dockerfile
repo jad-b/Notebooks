@@ -1,5 +1,4 @@
-# https://github.com/jupyter/docker-stacks/tree/master/all-spark-notebook
-FROM jupyter/tensorflow-notebook
+FROM jupyter/datascience-notebook
 
 # Install Dato's GraphLab
 # ENV GRAPHLAB_EMAIL j.american.db@gmail.com
@@ -20,8 +19,8 @@ FROM jupyter/tensorflow-notebook
 # Python2
 # TODO Remove once IPython version >=4.2.1
 #   http://stackoverflow.com/questions/37232446/ipython-console-cant-locate-backports-shutil-get-terminal-size-and-wont-load
-RUN pip2 install -I \
-    backports.shutil_get_terminal_size
+RUN pip2 install -U pip && \
+    pip2 install -I backports.shutil_get_terminal_size
 RUN conda install -n python2 --yes \
     pymc
 
@@ -32,7 +31,8 @@ RUN conda install --yes \
     "mpld3" \
     "sphinx" \
     "pytables"
-RUN pip install -U \
+RUN pip install -U pip  && \
+    pip install -U \
     aiohttp \
     google-api-python-client
 
